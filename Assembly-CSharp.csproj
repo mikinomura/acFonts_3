@@ -50,11 +50,13 @@
      <Compile Include="Assets\script\ChangeSameValueToMesh.cs" />
      <Compile Include="Assets\script\ChangeValue.cs" />
      <Compile Include="Assets\script\DivideMesh.cs" />
+     <Compile Include="Assets\script\GetSpectrumDataExample.cs" />
      <Compile Include="Assets\script\MeshController.cs" />
      <Compile Include="Assets\script\Noise.cs" />
      <Compile Include="Assets\script\NoiseSample.cs" />
      <Compile Include="Assets\script\RayCastToColorTriangle.cs" />
      <Compile Include="Assets\script\Sound.cs" />
+     <Compile Include="Assets\script\SpectrumAnalyzer.cs" />
      <Compile Include="Assets\script\VerticesCircle.cs" />
      <Compile Include="Assets\script\VertixColorPlay.cs" />
      <Compile Include="Assets\script\WaveOutputter.cs" />

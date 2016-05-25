@@ -1,4 +1,4 @@
-Shader "Anclin/Experiments/Vertex Animation"
+Shader "acFonts/Vertex Animation"
 {
 	Properties
 	{
