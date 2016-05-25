@@ -6,6 +6,8 @@ Shader "acFonts/Vertex Animation"
 		_Value2( "Value 2", Float ) = 0
 		_Value3( "Value 3", Float ) = 0
 		_Value4( "Value 4", Float) = 0
+		_Value5( "Value 5", Float) = 0
+		_Value6( "Value 6", Float) = 0
 		_ColorX ("Color X", COLOR) = (1,1,1,1)
       	_ColorY ("Color Y", COLOR) = (1,1,1,1)
       	_GradientStrength ("Graident Strength", Float) = 1
@@ -50,6 +52,8 @@ Shader "acFonts/Vertex Animation"
 			uniform float _Value2;
 			uniform float _Value3;
 			uniform float _Value4;
+			uniform float _Value5;
+			uniform float _Value6;
 			fixed4 _ColorLow;
       		fixed4 _ColorHigh;
       		fixed4 _ColorX;
@@ -106,7 +110,7 @@ Shader "acFonts/Vertex Animation"
 				// VERTEX ANIMATION ///////////////////////////////////////////////////////////////
 
 				// Fat mesh
-				//i.vertex.xyz += i.normal * _Value1;
+				i.vertex.xyz += i.normal * _Value5;
 				
 				// Waving mesh
 				//i.vertex.x += sin( ( i.vertex.y + _Time * _Value3 ) * _Value2 ) * _Value1;
@@ -117,8 +121,6 @@ Shader "acFonts/Vertex Animation"
 				i.vertex.xyz += i.vertex.xyz * (sin((i.vertex.x + i.vertex.y + _Time) * _Value2) + cos(i.vertex.y + i.vertex.z + _Time)) * _Value1;
 				i.vertex.xyz += rand(i.vertex.xyz) * _Value4;
 				//i.vertex.xyz = pos + i.normal * ( sin( (i.vertex.x + _Time * _Value3) * _Value2 )) * _Value1;
-
-
 
 				//////////////////////////////////////////////////////////// EO VERTEX ANIMATION //
 
