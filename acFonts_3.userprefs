@@ -2,11 +2,32 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/script/ChangeAllChildValue.cs">
     <Files>
-      <File FileName="Assets/script/ChangeAllChildValue.cs" Line="125" Column="23" />
+      <File FileName="Assets/script/MeshOnOff.cs" Line="43" Column="35" />
+      <File FileName="Assets/script/ChangeAllChildValue.cs" Line="76" Column="24" />
       <File FileName="Assets/shader/vertex animation.shader" Line="123" Column="100" />
-      <File FileName="Assets/script/MeshOnOff.cs" Line="14" Column="3" />
-      <File FileName="Assets/script/WaveOutputter.cs" Line="3" Column="1" />
+      <File FileName="Assets/script/WaveOutputter.cs" Line="1" Column="1" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="acFonts_3" expanded="True">
+            <Node name="Assembly-CSharp" expanded="True">
+              <Node name="script" expanded="True">
+                <Node name="ChangeAllChildValue.cs" selected="True" />
+              </Node>
+            </Node>
+            <Node name="Assembly-CSharp-firstpass" expanded="True">
+              <Node name="shader" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.NUnit.TestPad">
+        <State name="__root__">
+          <Node name="acFonts_3" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

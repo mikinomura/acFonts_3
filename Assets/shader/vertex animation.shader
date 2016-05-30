@@ -8,6 +8,7 @@ Shader "acFonts/Vertex Animation"
 		_Value4( "Value 4", Float) = 0
 		_Value5( "Value 5", Float) = 0
 		_Value6( "Value 6", Float) = 0
+		_Value7("Value 7", Float) = 0
 		_ColorX ("Color X", COLOR) = (1,1,1,1)
       	_ColorY ("Color Y", COLOR) = (1,1,1,1)
       	_GradientStrength ("Graident Strength", Float) = 1
@@ -54,6 +55,7 @@ Shader "acFonts/Vertex Animation"
 			uniform float _Value4;
 			uniform float _Value5;
 			uniform float _Value6;
+			uniform float _Value7;
 			fixed4 _ColorLow;
       		fixed4 _ColorHigh;
       		fixed4 _ColorX;
@@ -109,18 +111,16 @@ Shader "acFonts/Vertex Animation"
 
 				// VERTEX ANIMATION ///////////////////////////////////////////////////////////////
 
-				// Fat mesh
+				// split mesh 
 				i.vertex.xyz += i.normal * _Value5;
-				
-				// Waving mesh
-				//i.vertex.x += sin( ( i.vertex.y + _Time * _Value3 ) * _Value2 ) * _Value1;
-
-				// Bubbling mesh
-				//i.vertex.xyz += i.normal * ( sin( (i.vertex.x + _Time * _Value3) * _Value2 ) + cos( (i.vertex.z + _Time * _Value3) * _Value2 )  ) * _Value1;
+				//transition objects
+				i.vertex.xyz += _Value7;
+				//move like wave
 				i.vertex.xyz += i.normal * (sin((i.vertex.x + i.vertex.y + _Time * _Time) * _Value2) + cos(i.vertex.y + i.vertex.z + _Time)) * _Value3 * 0.01;
+				//move like wave vertically
 				i.vertex.xyz += i.vertex.xyz * (sin((i.vertex.x + i.vertex.y + _Time) * _Value2) + cos(i.vertex.y + i.vertex.z + _Time)) * _Value1;
+				//transform randomly
 				i.vertex.xyz += rand(i.vertex.xyz) * _Value4;
-				//i.vertex.xyz = pos + i.normal * ( sin( (i.vertex.x + _Time * _Value3) * _Value2 )) * _Value1;
 
 				//////////////////////////////////////////////////////////// EO VERTEX ANIMATION //
 
