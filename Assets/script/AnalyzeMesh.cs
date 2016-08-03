@@ -16,18 +16,18 @@ public class AnalyzeMesh : MonoBehaviour {
 
 		for(int i = 0; i < mesh.vertices.Length; i++)
 		{
-			print("vertices[" + i + "] : " + (mesh.vertices[i]*100f));
+			
 			//Vector3 pos = mesh.vertices;
 		}
 
 		for(int i = 0; i < mesh.uv.Length; i++)
 		{
-			print("uv[" + i + "] : " + mesh.uv[i]);
+			
 		}
 			
 		for(int i = 0; i < mesh.triangles.Length; i++)
 		{
-			print("triangles[" + i + "] : " + mesh.triangles[i]);
+			
 		}
 
 		baseVerticles = mesh.vertices;

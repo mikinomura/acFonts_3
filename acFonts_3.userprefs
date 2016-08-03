@@ -1,11 +1,17 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Resources/Script/MeshOnOff.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Resources/Shader/vertex animation.shader">
     <Files>
+      <File FileName="Assets/script/CameraController.cs" Line="52" Column="8" />
+      <File FileName="Assets/Resources/Script/ChangeAllChildValue.cs" Line="1" Column="1" />
+      <File FileName="Assets/Resources/Shader/vertex animation.shader" Line="1" Column="1" />
       <File FileName="Assets/script/WaveOutputter.cs" Line="1" Column="1" />
-      <File FileName="Assets/Resources/shader/buttonColorShader.shader" Line="4" Column="25" />
-      <File FileName="Assets/Resources/Script/ChangeAllChildValue.cs" Line="120" Column="7" />
-      <File FileName="Assets/Resources/Script/MeshOnOff.cs" Line="38" Column="68" />
+      <File FileName="Assets/Resources/Shader/buttonColorShader.shader" Line="1" Column="1" />
+      <File FileName="Assets/Resources/Script/MeshOnOff.cs" Line="18" Column="1" />
+      <File FileName="Assets/script/KnobIndicator.cs" Line="1" Column="1" />
+      <File FileName="Assets/MidiJack/Editor/MidiJackWindow.cs" Line="25" Column="19" />
+      <File FileName="Assets/MidiJack/MidiMaster.cs" Line="1" Column="1" />
+      <File FileName="Assets/MidiJack/MidiDriver.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

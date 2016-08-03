@@ -1,12 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using MidiJack;
 
 namespace acFonts{
 	public class MeshOnOff : MonoBehaviour {
 
 		public GameObject MeshGroup;
 		public GameObject FontsGroup;
+		//For Midi Controller
+		public int noteNumber;
 
 		private bool sound;
 
@@ -16,6 +19,29 @@ namespace acFonts{
 			FontsGroup.SetActive (true);
 			FontsGroup.GetComponent<ChangeAllChildValue> ().colorChange = true;
 			sound = false;
+		}
+
+		void Update()
+		{
+			if (MidiMaster.GetKeyDown (63)) {
+				onClick ();
+			} else if (MidiMaster.GetKeyDown (61)) {
+				onClickSound ();
+			} else if(MidiMaster.GetKeyDown(62))
+			{
+				onClickColor ();
+			}
+				
+		}
+
+		public void onClickColor(){
+			if (MeshGroup.activeSelf) {
+				MeshGroup.GetComponent<ChangeAllChildValue> ().ChangeColor ();
+			}
+			if (FontsGroup.activeSelf) {
+				FontsGroup.GetComponent<ChangeAllChildValue> ().ChangeColor ();
+			}
+		
 		}
 
 		public void onClick(){
