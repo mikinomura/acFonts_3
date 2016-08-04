@@ -13,12 +13,15 @@ public class KnobIndicator : MonoBehaviour
 	public bool IsKnob;
 	public bool IsNote;
 	public int parameter;
+	public GameObject MeshGroup;
+	public GameObject FontGroup;
 
 	void Start()
 	{
-		sliderValue = gameObject.GetComponent<Slider>().value;
-		maxValue = gameObject.GetComponent<Slider> ().maxValue;
-
+		if (gameObject.GetComponent<Slider> () != null) {
+			sliderValue = gameObject.GetComponent<Slider> ().value;
+			maxValue = gameObject.GetComponent<Slider> ().maxValue;
+		}
 	}
 
 	void Update()
@@ -32,11 +35,40 @@ public class KnobIndicator : MonoBehaviour
 		if (IsNote) {
 			if(MidiMaster.GetKeyDown(noteNumber))
 			{
-				if (gameObject.GetComponent<Slider> ().value == maxValue) {
-					gameObject.GetComponent<Slider> ().value = 0;
-				} else {
-					gameObject.GetComponent<Slider> ().value = maxValue;
+				if (noteNumber != 65 && noteNumber != 64) {
+					if (gameObject.GetComponent<Slider> ().value == maxValue) {
+						gameObject.GetComponent<Slider> ().value = 0;
+					} else {
+						gameObject.GetComponent<Slider> ().value = maxValue;
+					}
+				} else if (noteNumber == 65) {
+					if (MeshGroup.activeSelf) {
+						MeshGroup.GetComponent<acFonts.ChangeAllChildValue> ().ShowAircord ();
+
+					} else if (FontGroup.activeSelf) {
+						FontGroup.GetComponent<acFonts.ChangeAllChildValue> ().ShowAircord ();
+					}
+
+
+				} else if (noteNumber == 64) {
+					if (MeshGroup.activeSelf) {
+						MeshGroup.GetComponent<acFonts.ChangeAllChildValue> ().Bigger ();
+						if (MeshGroup.GetComponent<acFonts.ChangeAllChildValue> ().mode == acFonts.ChangeAllChildValue.MODE.AIRCORD) {
+							MeshGroup.GetComponent<acFonts.ChangeAllChildValue> ().mode = acFonts.ChangeAllChildValue.MODE.ALL;
+						} else {
+							MeshGroup.GetComponent<acFonts.ChangeAllChildValue> ().mode = acFonts.ChangeAllChildValue.MODE.AIRCORD;
+						}
+					} else if (FontGroup.activeSelf) {
+						if (FontGroup.GetComponent<acFonts.ChangeAllChildValue> ().mode == acFonts.ChangeAllChildValue.MODE.AIRCORD) {
+							FontGroup.GetComponent<acFonts.ChangeAllChildValue> ().mode = acFonts.ChangeAllChildValue.MODE.ALL;
+						}else {
+							FontGroup.GetComponent<acFonts.ChangeAllChildValue> ().mode = acFonts.ChangeAllChildValue.MODE.AIRCORD;
+						}
+
+						FontGroup.GetComponent<acFonts.ChangeAllChildValue> ().Bigger ();
+					}
 				}
+
 			}
 		
 		}

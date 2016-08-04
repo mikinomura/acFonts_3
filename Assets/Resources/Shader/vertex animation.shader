@@ -108,11 +108,13 @@ Shader "acFonts/Vertex Animation"
 				//transition objects
 				i.vertex.xyz += _Value7;
 				//move like wave
-				i.vertex.xyz += i.normal * (sin((i.vertex.x + i.vertex.y + _Time * _Time) * _Value2) + cos(i.vertex.y + i.vertex.z + _Time)) * _Value3 * 0.01;
+				i.vertex.xyz += i.normal * (sin((i.vertex.x + i.vertex.y * 0.1+ _Time * _Time) * _Value3) + cos(i.vertex.y + i.vertex.z + _Time)) * _Value2 * 0.01;
 				//move like wave vertically
 				i.vertex.xyz += i.vertex.xyz * (sin((i.vertex.x + i.vertex.y + _Time) * _Value2) + cos(i.vertex.y + i.vertex.z + _Time)) * _Value1;
 				//transform randomly
-				i.vertex.xyz += rand(i.vertex.xyz) * _Value4;
+				//i.vertex.xyz += rand(i.vertex.xyz) * _Value4;
+				i.vertex.x += rand(i.vertex.x) * _Value4;
+				i.vertex.y += rand(i.vertex.y) * _Value4;
 
 				//////////////////////////////////////////////////////////// EO VERTEX ANIMATION //
 

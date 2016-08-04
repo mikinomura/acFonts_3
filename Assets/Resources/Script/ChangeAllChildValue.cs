@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using System.Linq;
+using MidiJack;
 
 
 namespace acFonts{
@@ -54,10 +55,17 @@ namespace acFonts{
 		public float lowFreqThreshold = 14700, midFreqThreshold = 29400, highFreqThreshold = 44100;
 		public float lowEnhance = 1f, midEnhance = 10f, highEnhance = 100f;
 
+		public enum MODE
+		{
+			ALL,
+			AIRCORD
+		}
+
+		public MODE mode;
 		// Use this for initialization
 		void Start () {
 
-
+			mode = MODE.AIRCORD;
 			renderers = GetComponentsInChildren<Renderer>();
 
 			//set custom shader
@@ -95,7 +103,7 @@ namespace acFonts{
 			default:
 				return;
  			}
-
+		
 		}
 
 		public void ChangeParameter(int number){
@@ -181,6 +189,55 @@ namespace acFonts{
 			}
 		}
 
+		public void ShowAircord()
+		{
+			foreach(Transform tt in gameObject.transform)
+			{
+				/*
+				if (!tt.name.Contains ("b")) {
+					if (!tt.name.Contains ("a") && !tt.name.Contains ("i") && !tt.name.Contains ("r") && !tt.name.Contains ("c") && !tt.name.Contains ("d") && !tt.name.Contains ("o")) {
+						tt.gameObject.GetComponent<AnalyzeMesh> ().encValue = 5F;
+					}
+				} else {
+					print (tt.name);
+				}*/
+				tt.gameObject.GetComponent<AnalyzeMesh> ().encValue = 5F;
+			}
+		}
+
+		public void Bigger(){
+			foreach (Transform tt in gameObject.transform) {
+
+				if (mode == MODE.ALL) {
+					if (!tt.name.Contains ("a") && !tt.name.Contains ("i") && !tt.name.Contains ("r") && !tt.name.Contains ("c") && !tt.name.Contains ("d") && !tt.name.Contains ("o") && !tt.name.Contains ("l") && !tt.name.Contains ("b")) {
+						tt.gameObject.GetComponent<AnalyzeMesh> ().Smaller ();
+					} else {
+						tt.gameObject.GetComponent<AnalyzeMesh> ().SmallerThenShowUp ();
+					}
+					//mode = MODE.AIRCORD;
+						
+				}
+					
+				if (mode == MODE.AIRCORD) {
+					if (!tt.name.Contains ("a") && !tt.name.Contains ("i") && !tt.name.Contains ("r") && !tt.name.Contains ("c") && !tt.name.Contains ("d") && !tt.name.Contains ("o") && !tt.name.Contains ("l") && !tt.name.Contains ("b")) {
+						tt.gameObject.GetComponent<AnalyzeMesh> ().Bigger ();
+					} else {
+
+						tt.gameObject.GetComponent<AnalyzeMesh> ().BackAndBigger ();
+					}
+					//mode = MODE.ALL;
+				}
+
+
+			}
+			/*
+			if (mode == MODE.ALL) {
+				mode = MODE.AIRCORD;
+			} else {
+				mode = MODE.ALL;
+			}
+			*/
+		}
 			
 	}
 }

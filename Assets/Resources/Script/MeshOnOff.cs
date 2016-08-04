@@ -14,8 +14,8 @@ namespace acFonts{
 		private bool sound;
 
 		public void Start(){
-			MeshGroup.SetActive (false);
 			MeshGroup.GetComponent<ChangeAllChildValue> ().colorChange = false;
+			MeshGroup.SetActive (false);
 			FontsGroup.SetActive (true);
 			FontsGroup.GetComponent<ChangeAllChildValue> ().colorChange = true;
 			sound = false;
@@ -47,17 +47,18 @@ namespace acFonts{
 		public void onClick(){
 
 			if (MeshGroup.activeSelf) {
+				//MeshGroup.GetComponent<ChangeAllChildValue> ().colorChange = false;
 				MeshGroup.SetActive (false);
-				MeshGroup.GetComponent<ChangeAllChildValue> ().colorChange = false;
 			} else {
 				MeshGroup.SetActive (true);
-				MeshGroup.GetComponent<ChangeAllChildValue> ().colorChange = true;
-				MeshGroup.GetComponent<ChangeAllChildValue> ().ChangeColor ();
+				//MeshGroup.GetComponent<ChangeAllChildValue> ().colorChange = true;
+				//MeshGroup.GetComponent<ChangeAllChildValue> ().ChangeColor ();
 			}
 
 			if (FontsGroup.activeSelf) {
-				FontsGroup.SetActive (false);
 				FontsGroup.GetComponent<ChangeAllChildValue> ().colorChange = false;
+				FontsGroup.SetActive (false);
+
 			} else {
 				FontsGroup.SetActive (true);
 				FontsGroup.GetComponent<ChangeAllChildValue> ().colorChange = true;
