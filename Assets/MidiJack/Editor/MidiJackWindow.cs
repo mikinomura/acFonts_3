@@ -46,7 +46,7 @@ namespace MidiJack
             for (var i = 0; i < endpointCount; i++)
             {
                 var id = GetEndpointIdAtIndex(i);
-                var name = GetEndpointName(id);
+				var name = GetEndpointName (id);
                 temp += "\n" + id.ToString("X8") + ": " + name;
             }
             EditorGUILayout.HelpBox(temp, MessageType.None);
@@ -55,6 +55,7 @@ namespace MidiJack
             temp = "Recent MIDI messages:";
             foreach (var message in MidiDriver.Instance.History)
                 temp += "\n" + message.ToString();
+			Debug.Log (temp);
             EditorGUILayout.HelpBox(temp, MessageType.None);
         }
 

@@ -115,7 +115,7 @@ namespace MidiJack
 
         #region Editor Support
 
-        #if UNITY_EDITOR
+        //#if UNITY_EDITOR
 
         // Update timer
         const float _updateInterval = 1.0f / 30;
@@ -148,7 +148,7 @@ namespace MidiJack
             get { return _messageHistory; }
         }
 
-        #endif
+        //#endif
 
         #endregion
 

@@ -10,7 +10,7 @@ namespace acFonts{
 		public GameObject FontsGroup;
 		//For Midi Controller
 		public int noteNumber;
-
+		public GameObject camera;
 		private bool sound;
 
 		public void Start(){
@@ -26,7 +26,12 @@ namespace acFonts{
 			if (MidiMaster.GetKeyDown (63)) {
 				onClick ();
 			} else if (MidiMaster.GetKeyDown (61)) {
-				onClickSound ();
+				if (camera.GetComponent<CameraController> ().moveStatus == CameraController.MOVESTATUS.STOP) {
+					camera.GetComponent<CameraController> ().moveStatus = CameraController.MOVESTATUS.MOVE;
+				} else {
+					camera.GetComponent<CameraController> ().moveStatus = CameraController.MOVESTATUS.STOP;
+				}
+
 			} else if(MidiMaster.GetKeyDown(62))
 			{
 				onClickColor ();
