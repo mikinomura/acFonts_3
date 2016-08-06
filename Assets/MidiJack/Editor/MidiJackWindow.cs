@@ -55,7 +55,7 @@ namespace MidiJack
             temp = "Recent MIDI messages:";
             foreach (var message in MidiDriver.Instance.History)
                 temp += "\n" + message.ToString();
-			Debug.Log (temp);
+			//Debug.Log (temp);
             EditorGUILayout.HelpBox(temp, MessageType.None);
         }
 

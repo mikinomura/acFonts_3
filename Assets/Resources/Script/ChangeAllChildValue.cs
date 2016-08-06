@@ -55,6 +55,8 @@ namespace acFonts{
 		public float lowFreqThreshold = 14700, midFreqThreshold = 29400, highFreqThreshold = 44100;
 		public float lowEnhance = 1f, midEnhance = 10f, highEnhance = 100f;
 
+		float direction;
+		float sValue;
 		public enum MODE
 		{
 			ALL,
@@ -75,8 +77,8 @@ namespace acFonts{
 			}
 
 			//Adds a listener to the main slider and invokes a method when the value changes.
-			ChangeColor();
-
+			//ChangeColor();
+			/*
 			value1Slider.onValueChanged.AddListener (delegate {ChangeParameter (1);});
 			value2Slider.onValueChanged.AddListener (delegate {ChangeParameter (2);});
 			value3Slider.onValueChanged.AddListener (delegate {ChangeParameter (3);});
@@ -84,11 +86,14 @@ namespace acFonts{
 			value5Slider.onValueChanged.AddListener (delegate {ChangeParameter (5);});
 			value6Slider.onValueChanged.AddListener (delegate {ChangeParameter (6);});
 			value7Slider.onValueChanged.AddListener (delegate {ChangeParameter (7);});
+			*/
 
-
-			colorButton.onClick.AddListener(delegate {ChangeColor ();});
+			//colorButton.onClick.AddListener(delegate {ChangeColor ();});
 
 			audio_ = GetComponent<AudioSource>();
+
+			direction = 1F;
+			sValue = 0F;
 		}
 
 		// Update is called once per frame
@@ -106,7 +111,7 @@ namespace acFonts{
 		
 		}
 
-		public void ChangeParameter(int number){
+		public void ChangeParameter(int number, float value){
 
 			var name = "Value " + number + " Slider";
 			var propertyName = "_Value" + number;
@@ -116,31 +121,31 @@ namespace acFonts{
 
 			for (int i = 0; i < renderers.Length; i++) {
 				if (number == 6) {
-					renderers[i].transform.eulerAngles = new Vector3(90,180 - value1,0);
+					renderers[i].transform.eulerAngles = new Vector3(90,180 - value,0);
 				} else {
-					renderers [i].material.SetFloat (propertyName, Random.Range (0, value1));
+					renderers [i].material.SetFloat (propertyName, Random.Range (0, value));
 				}
 
 			}
 			ChooseLetter ();
 		}
 
-		public void ChangeColor(){
-			randomColorX = new Color(Random.value, Random.value, Random.value, 1.0F);
-			randomColorY = new Color(Random.value, Random.value, Random.value, 1.0F);
+		public void ChangeColor(float s){
+			if (randomColorY.g > 1F || randomColorY.g < 0F) {
+				direction = direction * -1F;
+			}
+			if (s == 127F) {
+				randomColorX += new Color (0.005F * direction, 0.005F * direction, 0.004F * direction, 1.0F);
+				randomColorY += new Color (0.003F * direction, 0.007F * direction, 0.002F * direction, 1.0F);
+			} else {
+				randomColorX += new Color (-0.005F * direction, -0.005F * direction, -0.004F * direction, 1.0F);
+				randomColorY += new Color (-0.003F * direction, -0.007F * direction, -0.002F * direction, 1.0F);
+			}
 
 			for (int i = 0; i < renderers.Length; i++) {
 				renderers [i].material.SetColor ("_ColorX", randomColorX);
 				renderers [i].material.SetColor ("_ColorY", randomColorY);
 			}
-
-			if (colorChange) {
-				//set color to button
-				var imageMaterial = colorButton.GetComponent<Image> ().material;
-				imageMaterial.SetColor ("_Color", randomColorX);
-				imageMaterial.SetColor ("_Color2", randomColorY);
-			}
-
 		}
 
 		void ChangeTransform(float vol){
@@ -189,19 +194,12 @@ namespace acFonts{
 			}
 		}
 
-		public void ShowAircord()
+		public void ShowAircord(float s)
 		{
 			foreach(Transform tt in gameObject.transform)
 			{
-				/*
-				if (!tt.name.Contains ("b")) {
-					if (!tt.name.Contains ("a") && !tt.name.Contains ("i") && !tt.name.Contains ("r") && !tt.name.Contains ("c") && !tt.name.Contains ("d") && !tt.name.Contains ("o")) {
-						tt.gameObject.GetComponent<AnalyzeMesh> ().encValue = 5F;
-					}
-				} else {
-					print (tt.name);
-				}*/
-				tt.gameObject.GetComponent<AnalyzeMesh> ().encValue = 5F;
+				tt.gameObject.GetComponent<AnalyzeMesh> ().Transform(s);
+
 			}
 		}
 

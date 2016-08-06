@@ -15,6 +15,7 @@ public class KnobIndicator : MonoBehaviour
 	public int parameter;
 	public GameObject MeshGroup;
 	public GameObject FontGroup;
+	float lastNum;
 
 	void Start()
 	{
@@ -30,7 +31,31 @@ public class KnobIndicator : MonoBehaviour
 			var channels = MidiMaster.GetKnobNumbers ();
 			var s = MidiMaster.GetKnob (knobNumber);
 			//knobNumber = channels [parameterNumber];
-			gameObject.GetComponent<Slider> ().value = s * maxValue;
+			if (knobNumber == 19) {
+				var difference = s * 100F - lastNum * 100F;
+				//if (s != 0) {
+					if (MeshGroup.activeSelf) {
+						MeshGroup.GetComponent<acFonts.ChangeAllChildValue> ().ShowAircord (difference);
+
+					} else if (FontGroup.activeSelf) {
+						FontGroup.GetComponent<acFonts.ChangeAllChildValue> ().ShowAircord (difference);
+					}
+				//} else {
+				/*
+					if (MeshGroup.activeSelf) {
+						MeshGroup.GetComponent<acFonts.ChangeAllChildValue> ().ShowAircord (s);
+
+					} else if (FontGroup.activeSelf) {
+						FontGroup.GetComponent<acFonts.ChangeAllChildValue> ().ShowAircord (s);
+					}
+					*/
+				//}
+
+			} else {
+				gameObject.GetComponent<Slider> ().value = s * maxValue;
+			}
+
+			lastNum = s;
 		}
 		if (IsNote) {
 			if(MidiMaster.GetKeyDown(noteNumber))
@@ -42,15 +67,18 @@ public class KnobIndicator : MonoBehaviour
 						gameObject.GetComponent<Slider> ().value = maxValue;
 					}
 				} else if (noteNumber == 65) {
+					/*
 					if (MeshGroup.activeSelf) {
 						MeshGroup.GetComponent<acFonts.ChangeAllChildValue> ().ShowAircord ();
 
 					} else if (FontGroup.activeSelf) {
 						FontGroup.GetComponent<acFonts.ChangeAllChildValue> ().ShowAircord ();
 					}
+					*/
 
 
 				} else if (noteNumber == 64) {
+					/*
 					if (MeshGroup.activeSelf) {
 						MeshGroup.GetComponent<acFonts.ChangeAllChildValue> ().Bigger ();
 						if (MeshGroup.GetComponent<acFonts.ChangeAllChildValue> ().mode == acFonts.ChangeAllChildValue.MODE.AIRCORD) {
@@ -67,8 +95,8 @@ public class KnobIndicator : MonoBehaviour
 
 						FontGroup.GetComponent<acFonts.ChangeAllChildValue> ().Bigger ();
 					}
+					*/
 				}
-
 			}
 		
 		}

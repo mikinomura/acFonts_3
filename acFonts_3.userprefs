@@ -1,18 +1,55 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Resources/Shader/vertex animation.shader">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/script/CameraController.cs">
     <Files>
-      <File FileName="Assets/script/CameraController.cs" Line="52" Column="8" />
+      <File FileName="Assets/script/CameraController.cs" Line="65" Column="5" />
       <File FileName="Assets/Resources/Script/ChangeAllChildValue.cs" Line="1" Column="1" />
-      <File FileName="Assets/Resources/Shader/vertex animation.shader" Line="1" Column="1" />
+      <File FileName="Assets/Resources/Shader/vertex animation.shader" Line="117" Column="46" />
       <File FileName="Assets/script/WaveOutputter.cs" Line="1" Column="1" />
       <File FileName="Assets/Resources/Shader/buttonColorShader.shader" Line="1" Column="1" />
-      <File FileName="Assets/Resources/Script/MeshOnOff.cs" Line="18" Column="1" />
-      <File FileName="Assets/script/KnobIndicator.cs" Line="1" Column="1" />
+      <File FileName="Assets/Resources/Script/MeshOnOff.cs" Line="35" Column="6" />
+      <File FileName="Assets/script/KnobIndicator.cs" Line="70" Column="6" />
       <File FileName="Assets/MidiJack/Editor/MidiJackWindow.cs" Line="25" Column="19" />
       <File FileName="Assets/MidiJack/MidiMaster.cs" Line="1" Column="1" />
-      <File FileName="Assets/MidiJack/MidiDriver.cs" Line="1" Column="1" />
+      <File FileName="Assets/MidiJack/MidiDriver.cs" Line="151" Column="11" />
+      <File FileName="Assets/script/AnalyzeMesh.cs" Line="143" Column="8" />
+      <File FileName="Assets/Kino/Glitch/AnalogGlitch.cs" Line="1" Column="1" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="acFonts_3" expanded="True">
+            <Node name="Assembly-CSharp" expanded="True">
+              <Node name="Kino" expanded="True">
+                <Node name="Glitch" expanded="True" />
+              </Node>
+              <Node name="MidiJack" expanded="True" />
+              <Node name="Resources" expanded="True">
+                <Node name="Script" expanded="True" />
+              </Node>
+              <Node name="script" expanded="True">
+                <Node name="CameraController.cs" selected="True" />
+              </Node>
+            </Node>
+            <Node name="Assembly-CSharp-Editor" expanded="True">
+              <Node name="MidiJack" expanded="True">
+                <Node name="Editor" expanded="True" />
+              </Node>
+            </Node>
+            <Node name="Assembly-CSharp-firstpass" expanded="True">
+              <Node name="Resources" expanded="True">
+                <Node name="Shader" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.NUnit.TestPad">
+        <State name="__root__">
+          <Node name="acFonts_3" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

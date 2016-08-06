@@ -12,8 +12,9 @@ public class AnalyzeMesh : MonoBehaviour {
 	public float encValue;
 	public Vector3 labPos;
 	Vector3 pos;
+	float lastEnc;
 
-	float time;
+	public float time;
 
 	void Start()
 	{
@@ -26,7 +27,7 @@ public class AnalyzeMesh : MonoBehaviour {
 
 		for(int i = 0; i < mesh.vertices.Length; i++)
 		{
-			print (mesh.vertices[i]);
+			//print (mesh.vertices[i]);
 			//Vector3 pos = mesh.vertices;
 		}
 
@@ -59,26 +60,40 @@ public class AnalyzeMesh : MonoBehaviour {
 		//randomValue = Random.Range (0f, 1f);
 		Vector3[] newNew = new Vector3[mesh.vertices.Length];
 		time += Time.deltaTime * encValue;
-
-		if (time < 5F) {
+		/*
+		if (encValue > 0F) {
 			for (int i = 0; i < mesh.vertices.Length; i++) {
-				newNew [i] = Vector3.Lerp (mesh.vertices [i], newVerticles [i], Time.deltaTime * encValue);
+				newNew [i] = Vector3.Lerp (baseVertices [i], newVerticles [i], encValue);
 			}
 
-		} else {
+		}else if(encValue <= 0F){
 			for (int i = 0; i < mesh.vertices.Length; i++) {
 				newNew [i] = Vector3.Lerp (mesh.vertices [i], baseVertices [i], Time.deltaTime * encValue);
 			}
-
-			if(time > 10F)
-			{
-				time = 0f;
-				encValue = 0F;
+		} 
+		else {
+			for (int i = 0; i < mesh.vertices.Length; i++) {
+				newNew [i] = Vector3.Lerp (mesh.vertices [i], baseVertices [i], Time.deltaTime * encValue * -2F);
 			}
+		}
+	
+		for (int i = 0; i < mesh.vertices.Length; i++) {
+			newNew [i] = Vector3.Lerp (mesh.vertices [i], baseVertices [i], Time.deltaTime * encValue);
+		}*/
+
+		//encValue = lastEnc;
+
+		//mesh.vertices = newNew;
+
+	}
+
+	public void Transform(float s){
+		Vector3[] newNew = new Vector3[mesh.vertices.Length];
+		for (int i = 0; i < mesh.vertices.Length; i++) {
+			newNew [i] = Vector3.Lerp (baseVertices [i], newVerticles [i], s);
 		}
 
 		mesh.vertices = newNew;
-
 	}
 
 	public void Bigger()

@@ -23,15 +23,17 @@ namespace acFonts{
 
 		void Update()
 		{
+			Cursor.visible = false;
 			if (MidiMaster.GetKeyDown (63)) {
-				onClick ();
+				//onClick ();
 			} else if (MidiMaster.GetKeyDown (61)) {
+				
 				if (camera.GetComponent<CameraController> ().moveStatus == CameraController.MOVESTATUS.STOP) {
 					camera.GetComponent<CameraController> ().moveStatus = CameraController.MOVESTATUS.MOVE;
 				} else {
 					camera.GetComponent<CameraController> ().moveStatus = CameraController.MOVESTATUS.STOP;
 				}
-
+					
 			} else if(MidiMaster.GetKeyDown(62))
 			{
 				onClickColor ();
@@ -40,17 +42,18 @@ namespace acFonts{
 		}
 
 		public void onClickColor(){
+			/*
 			if (MeshGroup.activeSelf) {
 				MeshGroup.GetComponent<ChangeAllChildValue> ().ChangeColor ();
 			}
 			if (FontsGroup.activeSelf) {
 				FontsGroup.GetComponent<ChangeAllChildValue> ().ChangeColor ();
-			}
+			}*/
 		
 		}
 
 		public void onClick(){
-
+			/*
 			if (MeshGroup.activeSelf) {
 				//MeshGroup.GetComponent<ChangeAllChildValue> ().colorChange = false;
 				MeshGroup.SetActive (false);
@@ -68,11 +71,12 @@ namespace acFonts{
 				FontsGroup.SetActive (true);
 				FontsGroup.GetComponent<ChangeAllChildValue> ().colorChange = true;
 				FontsGroup.GetComponent<ChangeAllChildValue> ().ChangeColor ();
-			}
+			}*/
 				
 		}
 
 		public void onClickSound(){
+			/*
 			ChangeAllChildValue target = FontsGroup.GetComponent<ChangeAllChildValue> ();
 			ChangeAllChildValue meshTarget = MeshGroup.GetComponent<ChangeAllChildValue> ();
 
@@ -93,6 +97,7 @@ namespace acFonts{
 				GameObject.Find ("Value 3 Slider").GetComponent<Slider> ().interactable = false;
 				GameObject.Find ("Value 4 Slider").GetComponent<Slider> ().interactable = false;
 			}
+			*/
 		}
 	}
 }
